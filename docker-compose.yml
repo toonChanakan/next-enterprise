@@ -1,0 +1,30 @@
+# นี่คือไฟล์ docker-compose.yml
+version: '3.8'
+ 
+services:
+  # 1. ตัวฐานข้อมูล PostgreSQL
+  db:
+    image: postgres:15 # ใช้ PostgreSQL เวอร์ชั่น 15
+    container_name: nextjs_db
+    restart: always
+    environment:
+      POSTGRES_USER: myuser # << ตั้งชื่อ user ของคุณ
+      POSTGRES_PASSWORD: mypassword # << ตั้งรหัสผ่านของคุณ
+      POSTGRES_DB: mydb # << ตั้งชื่อฐานข้อมูลของคุณ
+    ports:
+      - "5432:5432" # เชื่อมต่อ Port 5432 จากเครื่องเราเข้า Container
+    volumes:
+      - pg_data:/var/lib/postgresql/data # สั่งให้เก็บข้อมูลไว้แม้จะปิด Docker
+ 
+  # 2. ตัวแก้ไขฐานข้อมูล (DB Editor)
+  editor:
+    image: adminer # ใช้ Adminer
+    container_name: nextjs_db_editor
+    restart: always
+    ports:
+      - "8080:8080" # เชื่อมต่อ Port 8080 เพื่อเข้าหน้าเว็บ
+    depends_on:
+      - db # สั่งให้รอมันรอให้ db (PostgreSQL) ทำงานก่อน
+ 
+volumes:
+  pg_data: # กำหนดพื้นที่เก็บข้อมูล
