@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import { Button } from "components/Button/Button"
+import Link from "next/link"
 
 import { LP_GRID_ITEMS } from "lp-items"
 
@@ -50,9 +51,14 @@ export default function Web() {
             </Button><Button
               href="/blog-new"
               intent="secondary"
+              className="mr-3"
             >
               New api
             </Button>
+            <Button href="/blog-api">
+              API Page
+            </Button>
+
           </div>
         </div>
       </section>
