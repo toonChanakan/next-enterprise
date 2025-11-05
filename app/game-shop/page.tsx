@@ -1,10 +1,14 @@
-import { Metadata } from "next"
+'use client'
+
+import { useState } from 'react'
 import { Button } from "@/components/components/ui/button";
 import { Card, CardTitle } from "@/components/components/ui/card";
-import { CircleArrowLeft, CircleArrowRight, ShoppingBagIcon, Star, BookmarkIcon, Search } from "lucide-react"
+import { CircleArrowLeft, CircleArrowRight, BookmarkIcon, Search, CirclePlay, CirclePause } from "lucide-react"
 import { Toggle } from "@/components/components/ui/toggle";
 
 export default function Web() {
+  const [playing, setPlaying] = useState(false)
+
   return (
     <div className="space-y-8">
       <div className="flex items-center border  rounded-xl px-4 py-2 w-80 text-gray-400">
@@ -25,32 +29,24 @@ export default function Web() {
               sacrifice and survival, nad the lure of absolute power.</h3>
             <div className="flex gap-4 mt-4">
               <Button>PRE-ORDER NOW</Button>
-              <Button>TRAILER</Button>
+              <button onClick={() => setPlaying(!playing)} className="flex items-center gap-2">
+                {playing ? <CirclePause /> : <CirclePlay />}
+                {playing ? 'PAUSE' : 'TRAILER'}
+              </button>
             </div>
           </div>
         </Card>
-        <div className="h-full w-80 ml-8 space-y-4">
-          <Card>
-            <div className="flex border h-full">
-              <div className="border">picture</div>
-              <p>game1</p>
-            </div>
-          </Card>
-          <Card>
-            game2
-          </Card>
-          <Card>
-            game3
-          </Card>
-          <Card>
-            game4
-          </Card>
+        <div className="h-full w-80 ml-8">
+          <div className="flex h-20 w-full border rounded-lg p-2 space-x-3">
+            <div className="border rounded-lg h-full">picture</div>
+            <p className="">game1</p>
+          </div>
         </div>
       </div>
       <div className="my-8">
         <div className="flex justify-between items-center space-y-6">
           <p className="text-xl font-bold">
-            Game genresS
+            Game genres
           </p>
           <div className="flex flex-col-2 gap-5">
             <CircleArrowLeft />
@@ -72,13 +68,13 @@ export default function Web() {
         <div className="w-50">
           <div className="h-60 flex flex-col justify-between border rounded-lg overflow-hidden">
             <div className="h-full overflow-hidden flex justify-end items-start">
-              <div className="w-8 h-8 border rounded-sm m-2 flex justify-center items-center">
+              <div className="w-8 h-8 border rounded-sm m-2 flex justify-center items-center backdrop-blur-md bg-white/20">
                 <Toggle className="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500">
                   <BookmarkIcon />
                 </Toggle>
               </div>
             </div>
-            <div className="bg-gray-200 h-26 py-2 px-4 rounded-lg space-y-2">
+            <div className="h-26 py-2 px-4 rounded-lg space-y-2 backdrop-blur-md bg-white/20 border">
               <CardTitle className="text-sm">Game Title</CardTitle>
               <div className="flex justify-between items-center text-lg w-full pb-2">
                 price

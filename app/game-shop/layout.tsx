@@ -41,36 +41,42 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                                     </div>
                                     <div className="pb-2 px-4">
                                         <p className="font-bold text-lg ">Hottest game!</p>
-                                        <div className="mt-5 px-4">
-                                            <div className="h-60 flex flex-col justify-between border rounded-lg overflow-hidden">
-                                                <div className="h-full overflow-hidden flex justify-end items-start">
-                                                    <div className="w-8 h-8 border rounded-sm m-2 flex justify-center items-center">
-                                                        <Toggle className="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500">
-                                                            <BookmarkIcon />
-                                                        </Toggle>
+                                            <div className="relative rounded-lg mx-4 my-8">
+                                                <div className="absolute left-1/2 -translate-x-1/2 -top-4 backdrop-blur-md p-2 rounded-full shadow-lg border border-white/30">
+                                                    <div className="rounded-full">
+                                                        <Bell />
                                                     </div>
                                                 </div>
-                                                <div className="bg-gray-200 h-26 py-2 px-4 rounded-lg space-y-2">
-                                                    <CardTitle className="text-sm">Game Title</CardTitle>
-                                                    <div className="border-b border-gray-300 flex justify-between items-center text-lg w-full pb-2">
-                                                        price
-                                                        <div className="flex gap-2">
-                                                            <p>x</p>
-                                                            <p>w</p>
-                                                            <p>p</p>
+                                                <div className="h-60 flex flex-col justify-between border rounded-lg w-full">
+                                                    <div className="h-full overflow-hidden flex justify-end items-start">
+                                                        <div className="w-8 h-8 border rounded-sm m-2 flex justify-center items-center backdrop-blur-md bg-white/20">
+                                                            <Toggle className="data-[state=on]:bg-transparent data-[state=on]:*:[svg]:fill-blue-500 data-[state=on]:*:[svg]:stroke-blue-500">
+                                                                <BookmarkIcon />
+                                                            </Toggle>
                                                         </div>
                                                     </div>
-                                                    <div className="flex justify-start items-center gap-2 text-xs">
-                                                        <h3 className="flex">
-                                                            <ShoppingBagIcon size={16} strokeWidth={1} />500k
-                                                        </h3>
-                                                        <h3 className="flex">
-                                                            <Star size={16} strokeWidth={1} />4.5/5.0
-                                                        </h3>
+                                                    <div className="h-26 py-2 px-4 rounded-lg space-y-2 backdrop-blur-md bg-white/20 border">
+                                                        <CardTitle className="text-sm">Game Title</CardTitle>
+                                                        <div className="border-b border-gray-300 flex justify-between items-center text-lg w-full pb-2">
+                                                            price
+                                                            <div className="flex gap-2">
+                                                                <p>x</p>
+                                                                <p>w</p>
+                                                                <p>p</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex justify-start items-center gap-2 text-xs">
+                                                            <h3 className="flex">
+                                                                <ShoppingBagIcon size={16} strokeWidth={1} />500k
+                                                            </h3>
+                                                            <h3 className="flex">
+                                                                <Star size={16} strokeWidth={1} />4.5/5.0
+                                                            </h3>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                 
                                     </div>
                                 </div>
                             </aside>

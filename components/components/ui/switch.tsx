@@ -5,11 +5,19 @@ import * as SwitchPrimitive from "@radix-ui/react-switch"
 import { cn } from "@/components/lib/utils"
 import { Sun, Moon } from "lucide-react"
 
-function Switch({
+export function Switch({
   className,
   ...props
 }: React.ComponentProps<typeof SwitchPrimitive.Root>) {
   const [checked, setChecked] = React.useState(false)
+
+  React.useEffect(() => {
+    if (checked) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
+  }, [checked])
 
   return (
     <div
@@ -57,5 +65,3 @@ function Switch({
     </div>
   )
 }
-
-export { Switch }
