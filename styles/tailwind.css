@@ -1,5 +1,15 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* สำหรับ IE และ Edge */
+  scrollbar-width: none; /* สำหรับ Firefox */
+}
+
 /*
   ---break---
 */

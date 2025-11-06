@@ -12,7 +12,6 @@ import {
     SidebarMenuItem,
     SidebarFooter
 } from "@/components/components/ui/sidebar"
-import { use } from "react"
 
 // Menu items.
 const items = [
@@ -93,10 +92,9 @@ export function AppSidebar() {
                             </SidebarMenu>
                         </SidebarGroupContent>
                     </div>
-
                 </SidebarGroup>
             </SidebarContent>
-            <SidebarFooter className="mb-15 p-4 flex items-center justify-center"><Switch/></SidebarFooter>
+            <SidebarFooter className="mb-5 p-4 flex items-center justify-center"><Switch/></SidebarFooter>
         </Sidebar>
     )
 }
