@@ -22,21 +22,21 @@ export function Switch({
   return (
     <div
       className={cn(
-        "relative flex items-center rounded-lg p-1 w-[170px] h-10 select-none transition-colors duration-300",
+        "relative flex items-center rounded-lg p-1 w-[200px] h-10 select-none transition-colors duration-300",
         checked ? "bg-gray-800" : "bg-gray-200",
         className
       )}
     >
       <div
         className={cn(
-          "absolute top-[4px] bottom-[4px] w-[82px] rounded-md transition-all duration-300 pointer-events-none",
-          checked ? "left-[85px] bg-gray-600" : "left-[4px] bg-white"
+          "absolute top-[4px] bottom-[4px] w-[100px] rounded-md transition-all duration-300 pointer-events-none",
+          checked ? "left-[96px] bg-gray-600" : "left-[4px] bg-white"
         )}
       ></div>
 
       <div
         className={cn(
-          "flex flex-1 items-center justify-center gap-1 z-10 text-sm font-medium transition-colors pointer-events-none",
+          "flex flex-1 items-center justify-center gap-2 z-10 text-sm font-medium transition-colors pointer-events-none",
           checked ? "text-gray-400" : "text-black"
         )}
       >
@@ -46,7 +46,7 @@ export function Switch({
 
       <div
         className={cn(
-          "flex flex-1 items-center justify-center gap-1 z-10 text-sm font-medium transition-colors pointer-events-none",
+          "flex flex-1 items-center justify-center gap-2 z-10 text-sm font-medium transition-colors pointer-events-none",
           checked ? "text-white" : "text-gray-400"
         )}
       >

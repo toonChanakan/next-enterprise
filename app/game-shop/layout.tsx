@@ -24,34 +24,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const toggleSidebar = () => setSidebarOpen(prev => !prev);
 
     return (
-        <div lang="en">
-            <div className="h-full overflow-hidden">
+            <div className="h-screen w-screen overflow-hidden">
                 <SidebarProvider>
-                    <div className="flex h-full w-full">
+                    <div className="flex h-[calc(100vh-64px)] w-full">
                         <aside
-                            className={`relative flex flex-col border-r transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-16'}`}
+                            className={`relative flex flex-col transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-16'}`}
                         >
                             <div className="relative flex-1 h-full">
                                 <SidebarTrigger
                                     onClick={toggleSidebar}
                                     className="absolute top-2 right-2 z-50"
                                 />
-                                {isSidebarOpen && <AppSidebar />}
+                                <AppSidebar/>
                             </div>
                         </aside>
-                        <div className="flex overflow-hidden min-h-[calc(96vh-40px)] flex-1 h-full border border-gray-400 rounded-xl m-10 ">
-                            <main className="flex-1 p-6 overflow-auto h-full">
+                        <div className="flex overflow-hidden flex-1 h-full border border-black-400 rounded-xl m-8 backdrop-blur-md bg-white/5">
+                            <main className="flex-1 p-6 overflow-auto h-full scrollbar-hide">
                                 {children}
                             </main>
-
-                            <aside className="w-64 border-l border min-h-[calc(96vh-40px)] overflow-auto">
-                                <div className="space-y-4">
-                                    <div className="flex justify-end items-center h-15 border-b px-4">
-                                        <Bell className="mx-4" />
-                                        <ShoppingBagIcon className="mx-4" />
-                                        <UserCircle className="mx-4" />
+                            <aside className="w-64 border-l border h-full">
+                                    <div className="flex justify-end items-center h-15 border-b px-4 space-x-4">
+                                        <Bell/>
+                                        <ShoppingBagIcon/>
+                                        <UserCircle/>
                                     </div>
-                                    <div className="pb-2 px-4">
+                                    <div className="px-4 py-2 h-[calc(100%-2rem)] overflow-x-auto scrollbar-hide">
                                         <p className="font-bold text-lg">Hottest Games!</p>
                                         {hotGames.map((game) => (
                                             <div
@@ -109,12 +106,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                                             </div>
                                         ))}
                                     </div>
-                                </div>
                             </aside>
                         </div>
                     </div>
                 </SidebarProvider>
             </div>
-        </div>
     );
 }

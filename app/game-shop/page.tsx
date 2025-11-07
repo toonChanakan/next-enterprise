@@ -11,7 +11,7 @@ import { useHorizontalScroll } from "@/components/role";
 export default function Web() {
   const [playing, setPlaying] = useState(false)
   const [selectedGame, setSelectedGame] = useState(
-    ITEMS_GAMES_TRAILER.find((game) => game.id === 2)!
+    ITEMS_GAMES_TRAILER.find((game) => game.id === 1)!
   )
 
   const {
@@ -31,7 +31,7 @@ export default function Web() {
   } = useHorizontalScroll();
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 h-screen">
       <div className="flex items-center border  rounded-xl px-4 py-2 w-80 text-gray-400">
         <Search />
         <i className="fa-solid fa-magnifying-glass mr-3 text-gray-400"></i>
@@ -60,7 +60,7 @@ export default function Web() {
             </div>
           </div>
         </Card>
-        <div className="h-full w-80 ml-8 space-y-2">
+        <div className="h-full w-[30%] ml-8 space-y-2">
           {ITEMS_GAMES_TRAILER.map((game1) => (
             <button key={game1.id || game1.name} onClick={() => setSelectedGame(game1)} className="flex h-20 w-full border rounded-lg p-3 space-x-3  backdrop-blur-md bg-white/5 border">
               <div className="border rounded-lg h-full w-14"><img src={game1.picture} alt="" className="w-full h-full object-cover rounded-sm" /></div>
@@ -139,7 +139,7 @@ export default function Web() {
             {ITEMS_GAMES.map((game) => (
               <div
                 key={game.id}
-                className="w-52 flex-shrink-0"
+                className="w-48 flex-shrink-0"
               >
                 <div
                   className="h-60 flex flex-col justify-between border rounded-lg w-full bg-cover bg-center"
